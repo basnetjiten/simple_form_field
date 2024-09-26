@@ -1,0 +1,164 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'colors/app_colors.dart';
+
+class CustomFormField extends StatelessWidget {
+  const CustomFormField({
+    super.key,
+    this.prefixIcon,
+    this.hintText,
+    this.errorText,
+    this.keyboardType,
+    this.maxLines,
+    this.minLines,
+    this.onChanged,
+    this.suffixIcon,
+    this.inputAction,
+    this.onFieldSubmitted,
+    this.readonly = false,
+    this.focusedBorder,
+    this.disabledBorder,
+    this.onTap,
+    this.focusNode,
+    this.controller,
+    this.validator,
+    this.obscureText = false,
+    this.onEditingComplete,
+    this.style,
+    this.textAlign,
+    this.contentPadding,
+    this.fillColor,
+    this.autoFocus = false,
+    this.maxLength,
+    this.onSuffixPressed,
+    this.initialValue,
+    this.inputFormatters,
+    this.showCounterText = false,
+    this.autoValidateMode = AutovalidateMode.onUserInteraction,
+    this.disableBorder = false,
+    this.hintStyle,
+    this.cursorColor,
+    this.border,
+    this.errorMaxLines,
+    this.errorFontSize,
+    this.textCapitalization = true,
+    this.inputDecoration,
+    this.obscureColor,
+    this.nonObscureColor,
+    this.passwordIcon,
+    this.passwordObscureIcon,
+    this.passwordIconSize,
+  });
+
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final String? hintText;
+  final String? errorText;
+  final bool showCounterText;
+  final int? maxLines;
+  final int? minLines;
+  final TextInputType? keyboardType;
+  final TextInputAction? inputAction;
+  final void Function(String)? onChanged;
+  final bool readonly;
+  final InputBorder? border;
+  final InputBorder? focusedBorder;
+  final InputBorder? disabledBorder;
+  final Function()? onTap;
+  final Function(String)? onFieldSubmitted;
+  final FocusNode? focusNode;
+  final TextEditingController? controller;
+  final String? Function(String?)? validator;
+  final bool obscureText;
+  final Function()? onEditingComplete;
+  final TextStyle? style;
+  final TextStyle? hintStyle;
+  final TextAlign? textAlign;
+  final EdgeInsetsGeometry? contentPadding;
+  final Function()? onSuffixPressed;
+  final Color? fillColor;
+  final int? maxLength;
+  final AutovalidateMode? autoValidateMode;
+  final List<TextInputFormatter>? inputFormatters;
+  final bool disableBorder;
+  final Color? cursorColor;
+  final int? errorMaxLines;
+  final double? errorFontSize;
+  final double? passwordIconSize;
+  final bool autoFocus;
+  final bool textCapitalization;
+  final String? initialValue;
+  final Color? obscureColor;
+  final Color? nonObscureColor;
+  final InputDecoration? inputDecoration;
+  final IconData? passwordIcon;
+  final IconData? passwordObscureIcon;
+
+  @override
+  Widget build(BuildContext context) => TextFormField(
+    textCapitalization: textCapitalization
+        ? TextCapitalization.words
+        : TextCapitalization.none,
+    onTapOutside: (PointerDownEvent data) =>
+        FocusScope.of(context).requestFocus(FocusNode()),
+    cursorColor: cursorColor,
+    initialValue: initialValue,
+    inputFormatters: inputFormatters,
+    textAlign: textAlign ?? TextAlign.start,
+    autofocus: autoFocus,
+    obscureText: obscureText,
+    controller: controller,
+    focusNode: focusNode,
+    onTap: onTap,
+    readOnly: readonly,
+    style: style,
+    maxLines: maxLines,
+    minLines: minLines,
+    keyboardType: keyboardType,
+    textInputAction: inputAction ?? TextInputAction.next,
+    onChanged: onChanged,
+    validator: validator,
+    autovalidateMode: autoValidateMode,
+    maxLength: maxLength,
+    onEditingComplete:
+    onEditingComplete ?? () => FocusScope.of(context).nextFocus(),
+    decoration: inputDecoration ??
+        InputDecoration(
+          counterText: showCounterText ? null : '',
+          contentPadding: contentPadding ??
+              const EdgeInsets.only(
+                  left: 12, top: 12, right: 12, bottom: 12),
+          helperText: '',
+          alignLabelWithHint: true,
+          prefixIcon: prefixIcon,
+          border: border,
+          focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
+          enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
+          fillColor: fillColor,
+          hintText: hintText,
+          hintStyle: hintStyle,
+          errorMaxLines: errorMaxLines ?? 2,
+          errorText: errorText,
+          errorStyle: (errorText != null && errorText!.isNotEmpty)
+              ? TextStyle(fontSize: errorFontSize)
+              : null,
+          suffixIcon: keyboardType == TextInputType.visiblePassword
+              ? IconButton(
+            onPressed: onSuffixPressed,
+            icon: Icon(
+              !obscureText
+                  ? passwordIcon ?? Icons.visibility
+                  : passwordObscureIcon ?? Icons.visibility_off,
+              color: !obscureText
+                  ? obscureColor ?? AppColors.textDarkGrey
+                  : nonObscureColor ?? AppColors.textLight,
+              size: passwordIconSize ?? 16,
+            ),
+          )
+              : suffixIcon,
+          disabledBorder: disabledBorder,
+        ),
+  );
+}
