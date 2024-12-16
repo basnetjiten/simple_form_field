@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Flexible(
                 child: CustomFormField(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: 20,
                   label: Text('Email'),
                 ),
               ),

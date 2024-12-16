@@ -92,7 +92,7 @@ class CustomFormField extends StatelessWidget {
   final int? errorMaxLines;
   final double? errorFontSize;
   final double? passwordIconSize;
-  final BorderRadius? borderRadius;
+  final double? borderRadius;
   final bool autoFocus;
   final bool textCapitalization;
   final String? initialValue;
@@ -148,8 +148,7 @@ class CustomFormField extends StatelessWidget {
               prefixIcon: prefixIcon,
               border: border ??
                   OutlinedInputBorder(
-                      borderRadius: borderRadius ??
-                          const BorderRadius.all(Radius.circular(4.0))),
+                      borderRadius:BorderRadius.all(Radius.circular(borderRadius?? 4.0))),
               focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
               enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
               fillColor: fillColor,
