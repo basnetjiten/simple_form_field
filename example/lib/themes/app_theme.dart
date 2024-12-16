@@ -47,37 +47,37 @@ abstract class AppTheme {
     backgroundColor: Colors.white,
   );
 
-  static final InputDecorationTheme _lightInputTheme = InputDecorationTheme(
-
-    border: OutlinedInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(color: Colors.grey),
-    ),
-    enabledBorder: OutlinedInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(color: Colors.grey),
-    ),
-    errorBorder: OutlinedInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(color: Colors.red),
-    ),
-    focusedErrorBorder: OutlinedInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(color: Colors.grey),
-    ),
-    focusedBorder: OutlinedInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(color: Colors.green),
-    ),
-    disabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
-      borderSide: const BorderSide(color: Colors.grey),
-    ),
-    constraints: const BoxConstraints(minHeight: 44),
-    outlineBorder: BorderSide.none,
-    contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-    alignLabelWithHint: true,
-  );
+  // static final InputDecorationTheme _lightInputTheme = InputDecorationTheme(
+  //
+  //   border: OutlinedInputBorder(
+  //    // borderRadius: BorderRadius.circular(12),
+  //     borderSide: const BorderSide(color: Colors.grey),
+  //   ),
+  //   enabledBorder: OutlinedInputBorder(
+  //    // borderRadius: BorderRadius.circular(12),
+  //     borderSide: const BorderSide(color: Colors.grey),
+  //   ),
+  //   errorBorder: OutlinedInputBorder(
+  //   //  borderRadius: BorderRadius.circular(12),
+  //     borderSide: const BorderSide(color: Colors.red),
+  //   ),
+  //   focusedErrorBorder: OutlinedInputBorder(
+  //     borderRadius: BorderRadius.circular(12),
+  //     borderSide: const BorderSide(color: Colors.grey),
+  //   ),
+  //   focusedBorder: OutlinedInputBorder(
+  //   //  borderRadius: BorderRadius.circular(12),
+  //     borderSide: const BorderSide(color: Colors.green),
+  //   ),
+  //   disabledBorder: OutlineInputBorder(
+  //    // borderRadius: BorderRadius.circular(12),
+  //     borderSide: const BorderSide(color: Colors.grey),
+  //   ),
+  //   constraints: const BoxConstraints(minHeight: 44),
+  //   outlineBorder: BorderSide.none,
+  //   contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+  //   alignLabelWithHint: true,
+  // );
 
   static ThemeData get lightTheme => ThemeData(
         scaffoldBackgroundColor: Colors.white,
@@ -87,7 +87,7 @@ abstract class AppTheme {
         elevatedButtonTheme: _elevatedButtonTheme,
         filledButtonTheme: _filledButtonTheme,
         floatingActionButtonTheme: _floatingActionButtonTheme,
-        inputDecorationTheme: _lightInputTheme,
+      //  inputDecorationTheme: _lightInputTheme,
         navigationBarTheme: _navigationBarTheme,
         appBarTheme: AppBarTheme(
           elevation: 1,

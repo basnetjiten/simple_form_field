@@ -1,3 +1,8 @@
+## 0.0.4
+
+* Fix:  Base Bloc and cubit support
+* Feat: Add custom form field support
+
 ## 0.0.3
 
 * Fix: Add Base Bloc support

@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Forms',
       theme: AppTheme.lightTheme,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Forms'),
     );
   }
 }
@@ -44,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Flexible(
                 child: CustomFormField(
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
                   label: Text('Email'),
                 ),
               ),
