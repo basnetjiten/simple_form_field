@@ -14,6 +14,11 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+Field<T> _$FieldFromJson<T>(
+    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
+  return _Field<T>.fromJson(json, fromJsonT);
+}
+
 /// @nodoc
 mixin _$Field<T> {
   T get value => throw _privateConstructorUsedError;
@@ -21,6 +26,8 @@ mixin _$Field<T> {
   bool get isValid => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
+      throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FieldCopyWith<T, Field<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -122,7 +129,7 @@ class __$$FieldImplCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-
+@JsonSerializable(genericArgumentFactories: true)
 class _$FieldImpl<T> extends _Field<T> {
   const _$FieldImpl(
       {required this.value,
@@ -130,6 +137,10 @@ class _$FieldImpl<T> extends _Field<T> {
       this.isValid = false,
       this.obscureText = false})
       : super._();
+
+  factory _$FieldImpl.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$$FieldImplFromJson(json, fromJsonT);
 
   @override
   final T value;
@@ -160,6 +171,7 @@ class _$FieldImpl<T> extends _Field<T> {
                 other.obscureText == obscureText));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -173,6 +185,11 @@ class _$FieldImpl<T> extends _Field<T> {
   @pragma('vm:prefer-inline')
   _$$FieldImplCopyWith<T, _$FieldImpl<T>> get copyWith =>
       __$$FieldImplCopyWithImpl<T, _$FieldImpl<T>>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
+    return _$$FieldImplToJson<T>(this, toJsonT);
+  }
 }
 
 abstract class _Field<T> extends Field<T> {
@@ -182,6 +199,10 @@ abstract class _Field<T> extends Field<T> {
       final bool isValid,
       final bool obscureText}) = _$FieldImpl<T>;
   const _Field._() : super._();
+
+  factory _Field.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
+      _$FieldImpl<T>.fromJson;
 
   @override
   T get value;

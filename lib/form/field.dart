@@ -2,8 +2,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:simple_form_field/extensions/string_extension.dart';
 
 part 'field.freezed.dart';
+part 'field.g.dart';
 
-@freezed
+@Freezed(genericArgumentFactories: true, toJson: true, fromJson: true)
 class Field<T> with _$Field<T> {
   const Field._();
 
@@ -15,4 +16,10 @@ class Field<T> with _$Field<T> {
   }) = _Field<T>;
 
   bool get hasError => !errorMessage.isNullOrEmpty;
+
+
+  factory Field.fromJson(
+      Map<String, dynamic> json,
+      T Function(Object?) fromJsonT,
+      ) => _$FieldFromJson(json, fromJsonT);
 }

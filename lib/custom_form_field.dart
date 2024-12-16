@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
+import 'package:simple_form_field/outlined_input_border.dart';
 import 'colors/app_colors.dart';
 
 class CustomFormField extends StatelessWidget {
@@ -50,6 +49,10 @@ class CustomFormField extends StatelessWidget {
     this.passwordIcon,
     this.passwordObscureIcon,
     this.passwordIconSize,
+    this.labelStyle,
+    this.label,
+    this.labelText,
+    this.cursorHeight,
   });
 
   final Widget? prefixIcon;
@@ -84,6 +87,7 @@ class CustomFormField extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatters;
   final bool disableBorder;
   final Color? cursorColor;
+  final double? cursorHeight;
   final int? errorMaxLines;
   final double? errorFontSize;
   final double? passwordIconSize;
@@ -95,70 +99,77 @@ class CustomFormField extends StatelessWidget {
   final InputDecoration? inputDecoration;
   final IconData? passwordIcon;
   final IconData? passwordObscureIcon;
+  final TextStyle? labelStyle;
+  final Widget? label;
+  final String? labelText;
 
   @override
   Widget build(BuildContext context) => TextFormField(
-    textCapitalization: textCapitalization
-        ? TextCapitalization.words
-        : TextCapitalization.none,
-    onTapOutside: (PointerDownEvent data) =>
-        FocusScope.of(context).requestFocus(FocusNode()),
-    cursorColor: cursorColor,
-    initialValue: initialValue,
-    inputFormatters: inputFormatters,
-    textAlign: textAlign ?? TextAlign.start,
-    autofocus: autoFocus,
-    obscureText: obscureText,
-    controller: controller,
-    focusNode: focusNode,
-    onTap: onTap,
-    readOnly: readonly,
-    style: style,
-    maxLines: maxLines,
-    minLines: minLines,
-    keyboardType: keyboardType,
-    textInputAction: inputAction ?? TextInputAction.next,
-    onChanged: onChanged,
-    validator: validator,
-    autovalidateMode: autoValidateMode,
-    maxLength: maxLength,
-    onEditingComplete:
-    onEditingComplete ?? () => FocusScope.of(context).nextFocus(),
-    decoration: inputDecoration ??
-        InputDecoration(
-          counterText: showCounterText ? null : '',
-          contentPadding: contentPadding ??
-              const EdgeInsets.only(
-                  left: 12, top: 12, right: 12, bottom: 12),
-          helperText: '',
-          alignLabelWithHint: true,
-          prefixIcon: prefixIcon,
-          border: border,
-          focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
-          enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
-          fillColor: fillColor,
-          hintText: hintText,
-          hintStyle: hintStyle,
-          errorMaxLines: errorMaxLines ?? 2,
-          errorText: errorText,
-          errorStyle: (errorText != null && errorText!.isNotEmpty)
-              ? TextStyle(fontSize: errorFontSize)
-              : null,
-          suffixIcon: keyboardType == TextInputType.visiblePassword
-              ? IconButton(
-            onPressed: onSuffixPressed,
-            icon: Icon(
-              !obscureText
-                  ? passwordIcon ?? Icons.visibility
-                  : passwordObscureIcon ?? Icons.visibility_off,
-              color: !obscureText
-                  ? obscureColor ?? AppColors.textDarkGrey
-                  : nonObscureColor ?? AppColors.textLight,
-              size: passwordIconSize ?? 16,
+        textCapitalization: textCapitalization
+            ? TextCapitalization.words
+            : TextCapitalization.none,
+        onTapOutside: (PointerDownEvent data) =>
+            FocusScope.of(context).requestFocus(FocusNode()),
+        cursorColor: cursorColor,
+        cursorHeight: cursorHeight ?? 16.0,
+        initialValue: initialValue,
+        inputFormatters: inputFormatters,
+        textAlign: textAlign ?? TextAlign.start,
+        autofocus: autoFocus,
+        obscureText: obscureText,
+        controller: controller,
+        focusNode: focusNode,
+        onTap: onTap,
+        readOnly: readonly,
+        style: style,
+        maxLines: maxLines,
+        minLines: minLines,
+        keyboardType: keyboardType,
+        textInputAction: inputAction ?? TextInputAction.next,
+        onChanged: onChanged,
+        validator: validator,
+        autovalidateMode: autoValidateMode,
+        maxLength: maxLength,
+        onEditingComplete:
+            onEditingComplete ?? () => FocusScope.of(context).nextFocus(),
+        decoration: inputDecoration ??
+            InputDecoration(
+              floatingLabelBehavior: FloatingLabelBehavior.auto,
+              counterText: showCounterText ? null : '',
+              contentPadding: contentPadding ??
+                  const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
+              helperText: '',
+              labelStyle: labelStyle,
+              label: label,
+              labelText: labelText,
+              alignLabelWithHint: false,
+              prefixIcon: prefixIcon,
+              border: border ?? const OutlinedInputBorder(),
+              focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
+              enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
+              fillColor: fillColor,
+              hintText: hintText,
+              hintStyle: hintStyle,
+              errorMaxLines: errorMaxLines ?? 2,
+              errorText: errorText,
+              errorStyle: (errorText != null && errorText!.isNotEmpty)
+                  ? TextStyle(fontSize: errorFontSize)
+                  : null,
+              suffixIcon: keyboardType == TextInputType.visiblePassword
+                  ? IconButton(
+                      onPressed: onSuffixPressed,
+                      icon: Icon(
+                        !obscureText
+                            ? passwordIcon ?? Icons.visibility
+                            : passwordObscureIcon ?? Icons.visibility_off,
+                        color: !obscureText
+                            ? obscureColor ?? AppColors.textDarkGrey
+                            : nonObscureColor ?? AppColors.textLight,
+                        size: passwordIconSize ?? 16,
+                      ),
+                    )
+                  : suffixIcon,
+              disabledBorder: disabledBorder,
             ),
-          )
-              : suffixIcon,
-          disabledBorder: disabledBorder,
-        ),
-  );
+      );
 }

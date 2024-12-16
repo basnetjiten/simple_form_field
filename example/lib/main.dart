@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'themes/app_theme.dart';
 import 'package:simple_form_field/custom_form_field.dart';
 
@@ -43,9 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Flexible(child: CustomFormField()),
-              Flexible(child: CustomFormField()),
-              Flexible(child: CustomFormField()),
+              Flexible(
+                child: CustomFormField(
+                  label: Text('Email'),
+                ),
+              ),
               Flexible(child: CustomFormField()),
             ],
           ),
