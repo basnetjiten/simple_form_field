@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:simple_form_field/colors/app_colors.dart';
 
-class SvgImage extends StatelessWidget {
-  SvgImage(
+class SimpleSvgImage extends StatelessWidget {
+  SimpleSvgImage(
     String url, {
     super.key,
     this.width,
