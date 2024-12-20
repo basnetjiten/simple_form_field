@@ -1,4 +1,3 @@
-import 'package:adaptive_sizer/adaptive_sizer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -42,20 +41,20 @@ class SimpleCacheNetworkImage extends StatelessWidget {
             placeholderWidget ??
             Center(
               child: SizedBox(
-                width: width ?? 20.r,
-                height: height ?? 20.r,
+                width: width ,
+                height: height ,
                 child: const CircularProgressIndicator(strokeWidth: 2),
               ),
             ),
         errorWidget: (_, __, Object error) =>
             errorWidget ??
-            Center(
+            const Center(
               child: SizedBox(
-                width: 20.r,
-                height: 20.r,
+                width: 20,
+                height: 20,
                 child: Icon(
                   Icons.error_outline,
-                  size: 18.r,
+                  size: 18,
                 ),
               ),
             ),
