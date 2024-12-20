@@ -1,3 +1,6 @@
+## 0.0.5
+* Fix:  Remove tight coupling of States on Success and Failure method
+
 ## 0.0.4
 
 * Fix:  Base Bloc and cubit support

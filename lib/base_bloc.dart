@@ -14,8 +14,8 @@ abstract class BaseBloc<Event, State> extends BlocBase<State> {
   Future<void> handleAPICall<R>({
     Emitter<State>? emitter,
     required Future<Either<AppError, R>> call,
-    required State Function(R data) onSuccess,
-    required State Function(String error) onFailure,
+    required Function(R data) onSuccess,
+    required Function(String error) onFailure,
   }) async {
     if (isClosed) return;
 
@@ -34,8 +34,7 @@ abstract class BaseBloc<Event, State> extends BlocBase<State> {
     }
   }
 
-  State _mapErrorToState(
-      AppError error, State Function(String error) onFailure) {
+  State _mapErrorToState(AppError error, Function(String error) onFailure) {
     return error.when(
       serverError: (String message) => onFailure(message),
       noInternet: () => onFailure("No internet connection."),
