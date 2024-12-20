@@ -1,6 +1,6 @@
 name: simple_form_field
 description: "Wrapper around TextFormField"
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/basnetjiten/simple_form_field
 
 environment:

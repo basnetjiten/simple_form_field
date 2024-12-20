@@ -15,7 +15,7 @@ abstract class BaseBloc<Event, State> extends BlocBase<State> {
     Emitter<State>? emitter,
     required Future<Either<AppError, R>> call,
     required Function(R data) onSuccess,
-    required Function(String error) onFailure,
+    required State Function(String error) onFailure,
   }) async {
     if (isClosed) return;
 
@@ -24,26 +24,14 @@ abstract class BaseBloc<Event, State> extends BlocBase<State> {
 
       return apiResponse.fold(
         (AppError error) => emitter != null
-            ? emitter(_mapErrorToState(error, onFailure))
-            : emit(_mapErrorToState(error, onFailure)),
+            ? emitter(error.mapErrorMessage<State>(onFailure))
+            : emit(error.mapErrorMessage<State>(onFailure)),
         (R data) =>
             emitter != null ? emitter(onSuccess(data)) : emit(onSuccess(data)),
       );
     } catch (e) {
       emit(onFailure("An unexpected error occurred: $e"));
     }
-  }
-
-  State _mapErrorToState(AppError error, Function(String error) onFailure) {
-    return error.when(
-      serverError: (String message) => onFailure(message),
-      noInternet: () => onFailure("No internet connection."),
-      unAuthorized: () => onFailure("Unauthorized access."),
-      validationsError: (String message) => onFailure(message),
-      unAuthenticated: () => onFailure("Unauthenticated access."),
-      timeOut: (String message) => onFailure(message),
-      unSupportedPlatform: (String message) => onFailure(message),
-    );
   }
 
   @override

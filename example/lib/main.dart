@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'themes/app_theme.dart';
 import 'package:simple_form_field/custom_form_field.dart';
 
 void main() {
@@ -12,10 +11,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Forms',
-      theme: AppTheme.lightTheme,
-      home: const MyHomePage(title: 'Flutter Forms'),
+      home: MyHomePage(title: 'Flutter Forms'),
     );
   }
 }
