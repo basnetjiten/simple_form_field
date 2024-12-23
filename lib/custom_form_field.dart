@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:simple_form_field/outlined_input_border.dart';
-import 'colors/app_colors.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
@@ -167,8 +166,8 @@ class CustomFormField extends StatelessWidget {
                             ? passwordIcon ?? Icons.visibility
                             : passwordObscureIcon ?? Icons.visibility_off,
                         color: !obscureText
-                            ? obscureColor ?? AppColors.textDarkGrey
-                            : nonObscureColor ?? AppColors.textLight,
+                            ? obscureColor ?? Colors.black
+                            : nonObscureColor ?? Colors.black,
                         size: passwordIconSize ?? 16,
                       ),
                     )

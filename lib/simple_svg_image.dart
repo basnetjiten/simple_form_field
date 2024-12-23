@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:simple_form_field/colors/app_colors.dart';
 
 class SimpleSvgImage extends StatelessWidget {
   SimpleSvgImage(
@@ -18,7 +17,7 @@ class SimpleSvgImage extends StatelessWidget {
           height: height,
           fit: fit,
           colorFilter: setColorFilter
-              ? ColorFilter.mode(color ?? AppColors.black, BlendMode.srcIn)
+              ? ColorFilter.mode(color ?? Colors.black, BlendMode.srcIn)
               : colorFilter,
         );
 
