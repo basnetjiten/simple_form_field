@@ -33,10 +33,4 @@ abstract class BaseBloc<Event, State> extends BlocBase<State> {
       emit(onFailure("An unexpected error occurred: $e"));
     }
   }
-
-  @override
-  Future<void> close() {
-    this.close();
-    return super.close();
-  }
 }

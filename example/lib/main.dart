@@ -35,18 +35,25 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const Center(
+      body: Center(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Flexible(
+              const Flexible(
                 child: CustomFormField(
                   borderRadius: 20,
                   label: Text('Email'),
                 ),
               ),
-              Flexible(child: CustomFormField()),
+              const Flexible(child: CustomFormField()),
+              CustomFormField(
+                labelText: 'password',
+                keyboardType: TextInputType.visiblePassword,
+                onChanged: (text) {},
+                errorText: 'test',
+                obscureText: true,
+              )
             ],
           ),
         ),
