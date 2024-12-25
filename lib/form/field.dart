@@ -26,7 +26,7 @@ class Field<T> with _$Field<T> {
 
   /// Validates the field and returns a new instance with the updated state.
   Field<T> validate({
-    required T? value,
+    T? value,
     String? errorMessage,
     bool? obscureText,
   }) {
