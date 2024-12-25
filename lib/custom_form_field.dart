@@ -147,7 +147,8 @@ class CustomFormField extends StatelessWidget {
               prefixIcon: prefixIcon,
               border: border ??
                   OutlinedInputBorder(
-                      borderRadius:BorderRadius.all(Radius.circular(borderRadius?? 4.0))),
+                      borderRadius: BorderRadius.all(
+                          Radius.circular(borderRadius ?? 4.0))),
               focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
               enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
               fillColor: fillColor,
@@ -161,15 +162,12 @@ class CustomFormField extends StatelessWidget {
               suffixIcon: keyboardType == TextInputType.visiblePassword
                   ? IconButton(
                       onPressed: onSuffixPressed,
-                      icon: Icon(
-                        !obscureText
-                            ? passwordIcon ?? Icons.visibility
-                            : passwordObscureIcon ?? Icons.visibility_off,
-                        color: !obscureText
-                            ? obscureColor ?? Colors.black
-                            : nonObscureColor ?? Colors.black,
-                        size: passwordIconSize ?? 16,
-                      ),
+                      icon: !obscureText
+                          ? suffixIcon ?? const Icon(Icons.visibility)
+                          : suffixIcon ?? const Icon(Icons.visibility_off),
+                      color: !obscureText
+                          ? obscureColor ?? Colors.black
+                          : nonObscureColor ?? Colors.black,
                     )
                   : suffixIcon,
               disabledBorder: disabledBorder,
