@@ -21,14 +21,21 @@ class Field<T> with _$Field<T> {
     @Default(false) bool obscureText,
   }) = _Field<T>;
 
+  /// Returns `true` if there is an error message.
   bool get hasError => errorMessage.isNotNullOrEmpty;
 
-  // Factory constructor to create a Field with validation
-  Field<T> validate({required T input, String? inputErrorMessage}) {
+  /// Validates the field and returns a new instance with the updated state.
+  Field<T> validate({
+    required T? value,
+    String? errorMessage,
+    bool? obscureText,
+  }) {
+    bool isValid = errorMessage.isNull;
     return Field<T>(
-      value: input ?? value,
-      errorMessage: inputErrorMessage ?? errorMessage,
-      isValid: (inputErrorMessage ?? errorMessage).isNull ? true : false,
+      value: value ?? this.value,
+      errorMessage: errorMessage ?? this.errorMessage,
+      isValid: isValid,
+      obscureText: obscureText ?? this.obscureText,
     );
   }
 
