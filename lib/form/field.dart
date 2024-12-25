@@ -19,13 +19,12 @@ class Field<T> with _$Field<T> {
   bool get hasError => errorMessage.isNotNullOrEmpty;
 
   // Factory constructor to create a Field with validation
-  factory Field.validate(T value, String? Function(T) validator) {
+  Field validate(T value, String? Function(T) validator) {
     String? errorMessage = validator(value);
     return Field<T>(
-      value: value,
-      errorMessage: errorMessage,
-      isValid: errorMessage.isNotNullOrEmpty ? true: false
-    );
+        value: value,
+        errorMessage: errorMessage,
+        isValid: errorMessage.isNotNullOrEmpty ? true : false);
   }
 
   factory Field.fromJson(
@@ -33,6 +32,4 @@ class Field<T> with _$Field<T> {
     T Function(Object?) fromJsonT,
   ) =>
       _$FieldFromJson(json, fromJsonT);
-
-
 }
