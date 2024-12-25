@@ -19,7 +19,8 @@ class Field<T> with _$Field<T> {
   bool get hasError => errorMessage.isNotNullOrEmpty;
 
   // Factory constructor to create a Field with validation
-  Field<T> validate(T value, String? Function(T) validator) {
+  Field<T> validate(
+      {required T value, required String? Function(T) validator}) {
     String? errorMessage = validator(value);
     return Field<T>(
       value: value,
