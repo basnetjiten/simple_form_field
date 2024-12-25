@@ -15,7 +15,7 @@ class Field<T> with _$Field<T> {
     @Default(false) bool obscureText,
   }) = _Field<T>;
 
-  bool get hasError => !errorMessage.isNullOrEmpty;
+  bool get hasError => errorMessage.isNotNullOrEmpty;
 
 
   factory Field.fromJson(
