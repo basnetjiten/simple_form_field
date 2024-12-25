@@ -7,5 +7,5 @@ mixin FormMixin {
 
   List<Field<dynamic>> get fields;
 
-  Map<String, dynamic> get values;
+  //Map<String, dynamic> get values;
 }
