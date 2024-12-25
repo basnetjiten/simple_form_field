@@ -25,7 +25,7 @@ class Field<T> with _$Field<T> {
   bool get hasError => errorMessage.isNotNullOrEmpty;
 
   /// Validates the field and returns a new instance with the updated state.
-  Field<T> validate({
+  Field<T> update({
     T? value,
     String? errorMessage,
     bool? obscureText,
