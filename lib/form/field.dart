@@ -15,7 +15,7 @@ class Field<T> with _$Field<T> {
   const Field._();
 
   const factory Field({
-    required T? value,
+    required T value,
     String? errorMessage,
     @Default(false) bool isValid,
     @Default(false) bool obscureText,

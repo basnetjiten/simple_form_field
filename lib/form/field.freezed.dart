@@ -21,7 +21,7 @@ Field<T> _$FieldFromJson<T>(
 
 /// @nodoc
 mixin _$Field<T> {
-  T? get value => throw _privateConstructorUsedError;
+  T get value => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
   bool get obscureText => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ class _$FieldImpl<T> extends _Field<T> {
       _$$FieldImplFromJson(json, fromJsonT);
 
   @override
-  final T? value;
+  final T value;
   @override
   final String? errorMessage;
   @override
@@ -90,7 +90,7 @@ class _$FieldImpl<T> extends _Field<T> {
 
 abstract class _Field<T> extends Field<T> {
   const factory _Field(
-      {required final T? value,
+      {required final T value,
       final String? errorMessage,
       final bool isValid,
       final bool obscureText}) = _$FieldImpl<T>;
@@ -101,7 +101,7 @@ abstract class _Field<T> extends Field<T> {
       _$FieldImpl<T>.fromJson;
 
   @override
-  T? get value;
+  T get value;
   @override
   String? get errorMessage;
   @override
