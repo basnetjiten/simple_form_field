@@ -48,6 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               const Flexible(child: CustomFormField()),
               CustomFormField(
+
+                fillColor: Colors.green,
+                maxLines: 1,
                 labelText: 'password',
                 keyboardType: TextInputType.visiblePassword,
                 onChanged: (text) {},

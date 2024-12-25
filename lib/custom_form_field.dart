@@ -152,6 +152,7 @@ class CustomFormField extends StatelessWidget {
               focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
               enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
               fillColor: fillColor,
+              filled: fillColor!=null,
               hintText: hintText,
               hintStyle: hintStyle,
               errorMaxLines: errorMaxLines ?? 2,
