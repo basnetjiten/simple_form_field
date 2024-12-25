@@ -9,7 +9,6 @@ part 'field.g.dart';
   genericArgumentFactories: true,
   toJson: true,
   fromJson: true,
-  copyWith: false,
 )
 class Field<T> with _$Field<T> {
   const Field._();
@@ -31,7 +30,7 @@ class Field<T> with _$Field<T> {
     bool? obscureText,
   }) {
     bool isValid = errorMessage.isNull;
-    return Field<T>(
+    return copyWith(
       value: value ?? this.value,
       errorMessage: errorMessage ?? this.errorMessage,
       isValid: isValid,

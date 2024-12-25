@@ -28,6 +28,104 @@ mixin _$Field<T> {
 
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FieldCopyWith<T, Field<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $FieldCopyWith<T, $Res> {
+  factory $FieldCopyWith(Field<T> value, $Res Function(Field<T>) then) =
+      _$FieldCopyWithImpl<T, $Res, Field<T>>;
+  @useResult
+  $Res call({T value, String? errorMessage, bool isValid, bool obscureText});
+}
+
+/// @nodoc
+class _$FieldCopyWithImpl<T, $Res, $Val extends Field<T>>
+    implements $FieldCopyWith<T, $Res> {
+  _$FieldCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = freezed,
+    Object? errorMessage = freezed,
+    Object? isValid = null,
+    Object? obscureText = null,
+  }) {
+    return _then(_value.copyWith(
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as T,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscureText: null == obscureText
+          ? _value.obscureText
+          : obscureText // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$FieldImplCopyWith<T, $Res>
+    implements $FieldCopyWith<T, $Res> {
+  factory _$$FieldImplCopyWith(
+          _$FieldImpl<T> value, $Res Function(_$FieldImpl<T>) then) =
+      __$$FieldImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T value, String? errorMessage, bool isValid, bool obscureText});
+}
+
+/// @nodoc
+class __$$FieldImplCopyWithImpl<T, $Res>
+    extends _$FieldCopyWithImpl<T, $Res, _$FieldImpl<T>>
+    implements _$$FieldImplCopyWith<T, $Res> {
+  __$$FieldImplCopyWithImpl(
+      _$FieldImpl<T> _value, $Res Function(_$FieldImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = freezed,
+    Object? errorMessage = freezed,
+    Object? isValid = null,
+    Object? obscureText = null,
+  }) {
+    return _then(_$FieldImpl<T>(
+      value: freezed == value
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as T,
+      errorMessage: freezed == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String?,
+      isValid: null == isValid
+          ? _value.isValid
+          : isValid // ignore: cast_nullable_to_non_nullable
+              as bool,
+      obscureText: null == obscureText
+          ? _value.obscureText
+          : obscureText // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
@@ -82,6 +180,12 @@ class _$FieldImpl<T> extends _Field<T> {
       isValid,
       obscureText);
 
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FieldImplCopyWith<T, _$FieldImpl<T>> get copyWith =>
+      __$$FieldImplCopyWithImpl<T, _$FieldImpl<T>>(this, _$identity);
+
   @override
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
     return _$$FieldImplToJson<T>(this, toJsonT);
@@ -108,4 +212,8 @@ abstract class _Field<T> extends Field<T> {
   bool get isValid;
   @override
   bool get obscureText;
+  @override
+  @JsonKey(ignore: true)
+  _$$FieldImplCopyWith<T, _$FieldImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
