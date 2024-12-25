@@ -32,7 +32,7 @@ class Field<T> with _$Field<T> {
     bool isValid = errorMessage.isNull;
     return copyWith(
       value: value ?? this.value,
-      errorMessage: errorMessage ?? this.errorMessage,
+      errorMessage: errorMessage,
       isValid: isValid,
       obscureText: obscureText ?? this.obscureText,
     );
