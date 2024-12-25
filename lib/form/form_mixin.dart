@@ -1,7 +1,7 @@
 import 'field.dart';
 
 mixin FormMixin {
-  bool get isValid => fields.every((Field<dynamic> field) => field.isValid && !field.hasError);
+  bool get isValid => fields.every((Field<dynamic> field) => !field.hasError);
 
   bool get isNotValid => !isValid;
 
