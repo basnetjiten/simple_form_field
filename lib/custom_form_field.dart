@@ -137,8 +137,7 @@ class CustomFormField extends StatelessWidget {
             InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.auto,
               counterText: showCounterText ? null : '',
-              contentPadding: contentPadding ??
-                  const EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
+              contentPadding: contentPadding ,
               helperText: '',
               labelStyle: labelStyle,
               label: label,
@@ -152,6 +151,7 @@ class CustomFormField extends StatelessWidget {
               focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
               enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
               filled: true,
+              fillColor: fillColor,
               hintText: hintText,
               hintStyle: hintStyle,
               errorMaxLines: errorMaxLines ?? 2,
