@@ -5,12 +5,17 @@ part 'field.freezed.dart';
 
 part 'field.g.dart';
 
-@Freezed(genericArgumentFactories: true, toJson: true, fromJson: true)
+@Freezed(
+  genericArgumentFactories: true,
+  toJson: true,
+  fromJson: true,
+  copyWith: false,
+)
 class Field<T> with _$Field<T> {
   const Field._();
 
   const factory Field({
-    required T value,
+    required T? value,
     String? errorMessage,
     @Default(false) bool isValid,
     @Default(false) bool obscureText,
@@ -19,13 +24,11 @@ class Field<T> with _$Field<T> {
   bool get hasError => errorMessage.isNotNullOrEmpty;
 
   // Factory constructor to create a Field with validation
-  Field<T> validate(
-      {required T value, required String? Function(T) validator}) {
-    String? errorMessage = validator(value);
+  Field<T> validate({required T input, String? inputErrorMessage}) {
     return Field<T>(
-      value: value,
-      errorMessage: errorMessage,
-      isValid: errorMessage.isNull ? true : false,
+      value: input ?? value,
+      errorMessage: inputErrorMessage ?? errorMessage,
+      isValid: (inputErrorMessage ?? errorMessage).isNull ? true : false,
     );
   }
 

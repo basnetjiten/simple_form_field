@@ -11,7 +11,7 @@ _$FieldImpl<T> _$$FieldImplFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     _$FieldImpl<T>(
-      value: fromJsonT(json['value']),
+      value: _$nullableGenericFromJson(json['value'], fromJsonT),
       errorMessage: json['errorMessage'] as String?,
       isValid: json['isValid'] as bool? ?? false,
       obscureText: json['obscureText'] as bool? ?? false,
@@ -22,8 +22,20 @@ Map<String, dynamic> _$$FieldImplToJson<T>(
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
-      'value': toJsonT(instance.value),
+      'value': _$nullableGenericToJson(instance.value, toJsonT),
       'errorMessage': instance.errorMessage,
       'isValid': instance.isValid,
       'obscureText': instance.obscureText,
     };
+
+T? _$nullableGenericFromJson<T>(
+  Object? input,
+  T Function(Object? json) fromJson,
+) =>
+    input == null ? null : fromJson(input);
+
+Object? _$nullableGenericToJson<T>(
+  T? input,
+  Object? Function(T value) toJson,
+) =>
+    input == null ? null : toJson(input);
