@@ -22,9 +22,10 @@ class Field<T> with _$Field<T> {
   Field<T> validate(T value, String? Function(T) validator) {
     String? errorMessage = validator(value);
     return Field<T>(
-        value: value,
-        errorMessage: errorMessage,
-        isValid: errorMessage.isNotNullOrEmpty ? true : false);
+      value: value,
+      errorMessage: errorMessage,
+      isValid: errorMessage.isNull ? true : false,
+    );
   }
 
   factory Field.fromJson(
