@@ -137,17 +137,14 @@ class CustomFormField extends StatelessWidget {
             InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.auto,
               counterText: showCounterText ? null : '',
-              contentPadding: contentPadding ,
+              contentPadding: contentPadding,
               helperText: '',
               labelStyle: labelStyle,
               label: label,
               labelText: labelText,
               alignLabelWithHint: false,
               prefixIcon: prefixIcon,
-              border: border ??
-                  OutlinedInputBorder(
-                      borderRadius: BorderRadius.all(
-                          Radius.circular(borderRadius ?? 4.0))),
+              border: border,
               focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
               enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
               filled: true,
