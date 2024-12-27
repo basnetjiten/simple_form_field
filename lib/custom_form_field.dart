@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:simple_form_field/outlined_input_border.dart';
 
 class CustomFormField extends StatelessWidget {
   const CustomFormField({
@@ -52,7 +51,7 @@ class CustomFormField extends StatelessWidget {
     this.label,
     this.labelText,
     this.cursorHeight,
-    this.borderRadius,
+    this.borderRadius, this.alignVertical,
   });
 
   final Widget? prefixIcon;
@@ -103,15 +102,18 @@ class CustomFormField extends StatelessWidget {
   final TextStyle? labelStyle;
   final Widget? label;
   final String? labelText;
+  final TextAlignVertical? alignVertical;
 
   @override
   Widget build(BuildContext context) => TextFormField(
+    textAlignVertical: alignVertical,
         textCapitalization: textCapitalization
             ? TextCapitalization.words
             : TextCapitalization.none,
         onTapOutside: (PointerDownEvent data) =>
             FocusScope.of(context).requestFocus(FocusNode()),
         cursorColor: cursorColor,
+        enableSuggestions: false,
         cursorHeight: cursorHeight ?? 16.0,
         initialValue: initialValue,
         inputFormatters: inputFormatters,
