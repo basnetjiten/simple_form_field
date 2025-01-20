@@ -37,12 +37,21 @@ class SimpleCacheNetworkImage extends StatelessWidget {
         height: height,
         fit: fit,
         imageBuilder: imageBuilder,
+        progressIndicatorBuilder: (_, __, ___) =>
+            placeholderWidget ??
+            Center(
+              child: SizedBox(
+                width: width,
+                height: height,
+                child: const CircularProgressIndicator(strokeWidth: 2),
+              ),
+            ),
         placeholder: (_, __) =>
             placeholderWidget ??
             Center(
               child: SizedBox(
-                width: width ,
-                height: height ,
+                width: width,
+                height: height,
                 child: const CircularProgressIndicator(strokeWidth: 2),
               ),
             ),
