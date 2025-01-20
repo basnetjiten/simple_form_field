@@ -55,15 +55,15 @@ class SimpleCacheNetworkImage extends StatelessWidget {
                 child: const CircularProgressIndicator(strokeWidth: 2),
               ),
             ),
-        placeholder: (_, __) =>
-            placeholderWidget ??
-            Center(
-              child: SizedBox(
-                width: width,
-                height: height,
-                child: const CircularProgressIndicator(strokeWidth: 2),
-              ),
-            ),
+        // placeholder: (_, __) =>
+        //     placeholderWidget ??
+        //     Center(
+        //       child: SizedBox(
+        //         width: width,
+        //         height: height,
+        //         child: const CircularProgressIndicator(strokeWidth: 2),
+        //       ),
+        //     ),
         errorWidget: (_, __, Object error) =>
             errorWidget ??
             const Center(
