@@ -2,23 +2,29 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class SimpleCacheNetworkImage extends StatelessWidget {
-  const SimpleCacheNetworkImage({
-    required this.imageUrl,
-    super.key,
-    this.placeholderWidget,
-    this.errorWidget,
-    this.width,
-    this.height,
-    this.fit = BoxFit.contain,
-    this.cacheKey,
-    this.imageBuilder,
-  });
+  const SimpleCacheNetworkImage(
+      {required this.imageUrl,
+      super.key,
+      this.placeholderWidget,
+      this.errorWidget,
+      this.width,
+      this.height,
+      this.fit = BoxFit.contain,
+      this.cacheKey,
+      this.imageBuilder,
+      this.loadingIndicatorWidget,
+      this.useOldImageOnUrlChange = false});
 
   //image url to load image
   final String imageUrl;
 
+  final bool useOldImageOnUrlChange;
+
   //loading widget while image is loading
   final Widget? placeholderWidget;
+
+  //loading widget while image is loading
+  final Widget? loadingIndicatorWidget;
 
   //error widget to show error when image loading failed or invalid image url
   final Widget? errorWidget;
@@ -31,6 +37,9 @@ class SimpleCacheNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => CachedNetworkImage(
+        fadeOutDuration: Duration.zero,
+        fadeInDuration: Duration.zero,
+        useOldImageOnUrlChange: useOldImageOnUrlChange,
         imageUrl: imageUrl,
         cacheKey: cacheKey,
         width: width,
@@ -38,7 +47,7 @@ class SimpleCacheNetworkImage extends StatelessWidget {
         fit: fit,
         imageBuilder: imageBuilder,
         progressIndicatorBuilder: (_, __, ___) =>
-            placeholderWidget ??
+            loadingIndicatorWidget ??
             Center(
               child: SizedBox(
                 width: width,
