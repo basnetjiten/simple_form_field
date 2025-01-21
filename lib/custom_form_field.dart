@@ -51,7 +51,8 @@ class CustomFormField extends StatelessWidget {
     this.label,
     this.labelText,
     this.cursorHeight,
-    this.borderRadius, this.alignVertical,
+    this.borderRadius,
+    this.alignVertical,
   });
 
   final Widget? prefixIcon;
@@ -106,7 +107,7 @@ class CustomFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => TextFormField(
-    textAlignVertical: alignVertical,
+        textAlignVertical: alignVertical,
         textCapitalization: textCapitalization
             ? TextCapitalization.words
             : TextCapitalization.none,
@@ -154,10 +155,14 @@ class CustomFormField extends StatelessWidget {
               hintText: hintText,
               hintStyle: hintStyle,
               errorMaxLines: errorMaxLines ?? 2,
-              errorText: errorText,
-              errorStyle: (errorText != null && errorText!.isNotEmpty)
-                  ? TextStyle(fontSize: errorFontSize)
-                  : null,
+              error: const Padding(
+                padding: EdgeInsets.only(bottom: 5.0),
+                child: Text('error text'),
+              ),
+              // errorText: errorText,
+              // errorStyle: (errorText != null && errorText!.isNotEmpty)
+              //     ? TextStyle(fontSize: errorFontSize)
+              //     : null,
               suffixIcon: keyboardType == TextInputType.visiblePassword
                   ? IconButton(
                       onPressed: onSuffixPressed,
