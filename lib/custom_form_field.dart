@@ -157,9 +157,8 @@ class CustomFormField extends StatelessWidget {
               errorMaxLines: errorMaxLines ?? 2,
               error: (errorText != null && errorText!.isNotEmpty)
                   ? Padding(
-                      padding: const EdgeInsets.only(bottom: 5.0),
-                      child: Text(errorText!,
-                          style: TextStyle(fontSize: errorFontSize)),
+                      padding: const EdgeInsets.only(bottom: 7.0),
+                      child: Text(errorText!),
                     )
                   : null,
               // errorText: errorText,
