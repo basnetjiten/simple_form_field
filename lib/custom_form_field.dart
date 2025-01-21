@@ -52,7 +52,8 @@ class CustomFormField extends StatelessWidget {
     this.labelText,
     this.cursorHeight,
     this.borderRadius,
-    this.alignVertical, this.errorStyle,
+    this.alignVertical,
+    this.errorStyle,
   });
 
   final Widget? prefixIcon;
@@ -160,7 +161,13 @@ class CustomFormField extends StatelessWidget {
               error: (errorText != null && errorText!.isNotEmpty)
                   ? Padding(
                       padding: const EdgeInsets.only(bottom: 7.0),
-                      child: Text(errorText!,style: errorStyle,),
+                      child: Text(
+                        errorText!,
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: Theme.of(context).colorScheme.error,
+                        ),
+                      ),
                     )
                   : null,
               // errorText: errorText,
