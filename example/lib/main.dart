@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 labelText: 'password',
                 keyboardType: TextInputType.visiblePassword,
                 onChanged: (text) {},
-                errorText: 'test',
+                errorText: 'Error',
                 obscureText: true,
               )
             ],

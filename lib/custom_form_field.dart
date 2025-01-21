@@ -155,10 +155,13 @@ class CustomFormField extends StatelessWidget {
               hintText: hintText,
               hintStyle: hintStyle,
               errorMaxLines: errorMaxLines ?? 2,
-              error: const Padding(
-                padding: EdgeInsets.only(bottom: 5.0),
-                child: Text('error text'),
-              ),
+              error: (errorText != null && errorText!.isNotEmpty)
+                  ? Padding(
+                      padding: const EdgeInsets.only(bottom: 5.0),
+                      child: Text(errorText!,
+                          style: TextStyle(fontSize: errorFontSize)),
+                    )
+                  : null,
               // errorText: errorText,
               // errorStyle: (errorText != null && errorText!.isNotEmpty)
               //     ? TextStyle(fontSize: errorFontSize)
