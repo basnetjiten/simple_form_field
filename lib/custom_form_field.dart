@@ -53,7 +53,6 @@ class CustomFormField extends StatelessWidget {
     this.cursorHeight,
     this.borderRadius,
     this.alignVertical,
-    this.errorStyle,
   });
 
   final Widget? prefixIcon;
@@ -79,7 +78,6 @@ class CustomFormField extends StatelessWidget {
   final Function()? onEditingComplete;
   final TextStyle? style;
   final TextStyle? hintStyle;
-  final TextStyle? errorStyle;
   final TextAlign? textAlign;
   final EdgeInsetsGeometry? contentPadding;
   final Function()? onSuffixPressed;
@@ -157,23 +155,7 @@ class CustomFormField extends StatelessWidget {
               hintText: hintText,
               hintStyle: hintStyle,
               errorMaxLines: errorMaxLines ?? 2,
-              errorStyle: errorStyle,
-              error: (errorText != null && errorText!.isNotEmpty)
-                  ? Padding(
-                      padding: const EdgeInsets.only(bottom: 7.0),
-                      child: Text(
-                        errorText!,
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          color: Theme.of(context).colorScheme.error,
-                        ),
-                      ),
-                    )
-                  : null,
-              // errorText: errorText,
-              // errorStyle: (errorText != null && errorText!.isNotEmpty)
-              //     ? TextStyle(fontSize: errorFontSize)
-              //     : null,
+              errorText: errorText,
               suffixIcon: keyboardType == TextInputType.visiblePassword
                   ? IconButton(
                       onPressed: onSuffixPressed,
