@@ -52,7 +52,7 @@ class CustomFormField extends StatelessWidget {
     this.labelText,
     this.cursorHeight,
     this.borderRadius,
-    this.alignVertical,
+    this.alignVertical, this.errorStyle,
   });
 
   final Widget? prefixIcon;
@@ -78,6 +78,7 @@ class CustomFormField extends StatelessWidget {
   final Function()? onEditingComplete;
   final TextStyle? style;
   final TextStyle? hintStyle;
+  final TextStyle? errorStyle;
   final TextAlign? textAlign;
   final EdgeInsetsGeometry? contentPadding;
   final Function()? onSuffixPressed;
@@ -155,10 +156,11 @@ class CustomFormField extends StatelessWidget {
               hintText: hintText,
               hintStyle: hintStyle,
               errorMaxLines: errorMaxLines ?? 2,
+              errorStyle: errorStyle,
               error: (errorText != null && errorText!.isNotEmpty)
                   ? Padding(
                       padding: const EdgeInsets.only(bottom: 7.0),
-                      child: Text(errorText!),
+                      child: Text(errorText!,style: errorStyle,),
                     )
                   : null,
               // errorText: errorText,

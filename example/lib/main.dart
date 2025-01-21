@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 fillColor: Colors.green,
                 maxLines: 1,
-                labelStyle: TextStyle(height: 5),
+                labelStyle: const TextStyle(height: 5),
                 labelText: 'password',
                 keyboardType: TextInputType.visiblePassword,
                 onChanged: (text) {},
