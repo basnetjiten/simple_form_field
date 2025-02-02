@@ -135,7 +135,7 @@ class CustomFormField extends StatelessWidget {
         autovalidateMode: autoValidateMode,
         maxLength: maxLength,
         onEditingComplete:
-            onEditingComplete ?? () => FocusScope.of(context).nextFocus(),
+            onEditingComplete ?? () => FocusScope.of(context).requestFocus(FocusNode()),
         decoration: inputDecoration ??
             InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.auto,
