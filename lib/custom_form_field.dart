@@ -40,7 +40,7 @@ class CustomFormField extends StatelessWidget {
     this.border,
     this.errorMaxLines,
     this.errorFontSize,
-    this.textCapitalization = true,
+    this.textCapitalization = false,
     this.inputDecoration,
     this.obscureColor,
     this.nonObscureColor,
