@@ -1,19 +1,23 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class SimpleCacheNetworkImage extends StatelessWidget {
-  const SimpleCacheNetworkImage(
-      {required this.imageUrl,
-      super.key,
-      this.placeholderWidget,
-      this.errorWidget,
-      this.width,
-      this.height,
-      this.fit = BoxFit.contain,
-      this.cacheKey,
-      this.imageBuilder,
-      this.loadingIndicatorWidget,
-      this.useOldImageOnUrlChange = false});
+  const SimpleCacheNetworkImage({
+    required this.imageUrl,
+    super.key,
+    this.placeholderWidget,
+    this.errorWidget,
+    this.width,
+    this.height,
+    this.fit = BoxFit.contain,
+    this.cacheKey,
+    this.imageBuilder,
+    this.loadingIndicatorWidget,
+    this.useOldImageOnUrlChange = false,
+    this.shimmerHeight,
+    this.shimmerWidth,
+  });
 
   //image url to load image
   final String imageUrl;
@@ -31,6 +35,8 @@ class SimpleCacheNetworkImage extends StatelessWidget {
 
   final double? width;
   final double? height;
+  final double? shimmerHeight;
+  final double? shimmerWidth;
   final BoxFit fit;
   final String? cacheKey;
   final Widget Function(BuildContext, ImageProvider<Object>)? imageBuilder;
@@ -48,11 +54,13 @@ class SimpleCacheNetworkImage extends StatelessWidget {
         imageBuilder: imageBuilder,
         progressIndicatorBuilder: (_, __, ___) =>
             loadingIndicatorWidget ??
-            Center(
-              child: SizedBox(
-                width: width,
-                height: height,
-                child: const CircularProgressIndicator(strokeWidth: 2),
+            Shimmer.fromColors(
+              baseColor: Colors.grey[300]!,
+              highlightColor: Colors.grey[100]!,
+              child: Container(
+                height: shimmerHeight ?? 24,
+                width: shimmerWidth ?? 24,
+                color: Colors.white,
               ),
             ),
         // placeholder: (_, __) =>
