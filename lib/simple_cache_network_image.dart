@@ -53,14 +53,17 @@ class SimpleCacheNetworkImage extends StatelessWidget {
         fit: fit,
         imageBuilder: imageBuilder,
         progressIndicatorBuilder: (_, __, ___) =>
-            loadingIndicatorWidget ??
-            Shimmer.fromColors(
-              baseColor: Colors.grey[300]!,
-              highlightColor: Colors.grey[100]!,
-              child: Container(
-                height: shimmerHeight ?? 24,
-                width: shimmerWidth ?? 24,
-                color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: loadingIndicatorWidget ??
+              Shimmer.fromColors(
+                baseColor: Colors.grey[300]!,
+                highlightColor: Colors.grey[100]!,
+                child: Container(
+                  height: shimmerHeight ?? 24,
+                  width: shimmerWidth ?? 24,
+                  color: Colors.white,
+                ),
               ),
             ),
         // placeholder: (_, __) =>
