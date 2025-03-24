@@ -40,7 +40,9 @@ class CustomFormField extends StatelessWidget {
     this.border,
     this.errorMaxLines,
     this.errorFontSize,
-    this.textCapitalization = false,
+    this.sentenceCapitalization = false,
+    this.wordCapitalization = false,
+    this.characterCapitalization = false,
     this.inputDecoration,
     this.obscureColor,
     this.nonObscureColor,
@@ -93,7 +95,9 @@ class CustomFormField extends StatelessWidget {
   final double? passwordIconSize;
   final double? borderRadius;
   final bool autoFocus;
-  final bool textCapitalization;
+  final bool sentenceCapitalization;
+  final bool wordCapitalization;
+  final bool characterCapitalization;
   final String? initialValue;
   final Color? obscureColor;
   final Color? nonObscureColor;
@@ -108,9 +112,11 @@ class CustomFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) => TextFormField(
         textAlignVertical: alignVertical,
-        textCapitalization: textCapitalization
-            ? TextCapitalization.words
-            : TextCapitalization.none,
+        textCapitalization: getTextCapitalization(
+          sentenceCapitalization: sentenceCapitalization,
+          wordCapitalization: wordCapitalization,
+          characterCapitalization: characterCapitalization,
+        ),
         onTapOutside: (PointerDownEvent data) =>
             FocusScope.of(context).requestFocus(FocusNode()),
         cursorColor: cursorColor,
@@ -134,8 +140,8 @@ class CustomFormField extends StatelessWidget {
         validator: validator,
         autovalidateMode: autoValidateMode,
         maxLength: maxLength,
-        onEditingComplete:
-            onEditingComplete ?? () => FocusScope.of(context).requestFocus(FocusNode()),
+        onEditingComplete: onEditingComplete ??
+            () => FocusScope.of(context).requestFocus(FocusNode()),
         decoration: inputDecoration ??
             InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.auto,
@@ -170,4 +176,20 @@ class CustomFormField extends StatelessWidget {
               disabledBorder: disabledBorder,
             ),
       );
+
+  TextCapitalization getTextCapitalization({
+    required bool sentenceCapitalization,
+    required bool wordCapitalization,
+    required bool characterCapitalization,
+  }) {
+    if (sentenceCapitalization) {
+      return TextCapitalization.sentences;
+    } else if (wordCapitalization) {
+      return TextCapitalization.words;
+    } else if (characterCapitalization) {
+      return TextCapitalization.characters;
+    } else {
+      return TextCapitalization.none;
+    }
+  }
 }
