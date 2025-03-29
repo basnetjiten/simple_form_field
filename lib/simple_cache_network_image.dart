@@ -46,7 +46,6 @@ class SimpleCacheNetworkImage extends StatelessWidget {
         fadeOutDuration: Duration.zero,
         fadeInDuration: Duration.zero,
         useOldImageOnUrlChange: useOldImageOnUrlChange,
-        placeholderFadeInDuration: Duration.zero,
         imageUrl: imageUrl,
         cacheKey: cacheKey,
         width: width,
