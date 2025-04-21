@@ -62,7 +62,6 @@ class SimpleCacheNetworkImage extends StatelessWidget {
                   height: shimmerHeight ?? 24,
                   width: shimmerWidth ?? 24,
                   decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
                     color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular(2)),
                   ),
