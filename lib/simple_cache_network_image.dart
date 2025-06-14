@@ -17,6 +17,7 @@ class SimpleCacheNetworkImage extends StatelessWidget {
     this.useOldImageOnUrlChange = false,
     this.shimmerHeight,
     this.shimmerWidth,
+    this.shimmerRadius,
   });
 
   //image url to load image
@@ -37,6 +38,7 @@ class SimpleCacheNetworkImage extends StatelessWidget {
   final double? height;
   final double? shimmerHeight;
   final double? shimmerWidth;
+  final double? shimmerRadius;
   final BoxFit fit;
   final String? cacheKey;
   final Widget Function(BuildContext, ImageProvider<Object>)? imageBuilder;
@@ -61,9 +63,9 @@ class SimpleCacheNetworkImage extends StatelessWidget {
                 child: Container(
                   height: shimmerHeight ?? 24,
                   width: shimmerWidth ?? 24,
-                  decoration: const BoxDecoration(
+                  decoration:  BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(2)),
+                    borderRadius: BorderRadius.all(Radius.circular(shimmerRadius??2)),
                   ),
                 ),
               ),
