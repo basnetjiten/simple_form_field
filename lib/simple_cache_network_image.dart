@@ -18,7 +18,13 @@ class SimpleCacheNetworkImage extends StatelessWidget {
     this.shimmerHeight,
     this.shimmerWidth,
     this.shimmerRadius,
+    this.memCacheHeight,
+    this.memCacheWidth,
   });
+
+  final int? memCacheHeight;
+
+  final int? memCacheWidth;
 
   //image url to load image
   final String imageUrl;
@@ -45,6 +51,8 @@ class SimpleCacheNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => CachedNetworkImage(
+        memCacheHeight: memCacheHeight,
+        memCacheWidth: memCacheWidth,
         fadeOutDuration: Duration.zero,
         fadeInDuration: Duration.zero,
         useOldImageOnUrlChange: useOldImageOnUrlChange,
@@ -63,9 +71,10 @@ class SimpleCacheNetworkImage extends StatelessWidget {
                 child: Container(
                   height: shimmerHeight ?? 24,
                   width: shimmerWidth ?? 24,
-                  decoration:  BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(shimmerRadius??2)),
+                    borderRadius:
+                        BorderRadius.all(Radius.circular(shimmerRadius ?? 2)),
                   ),
                 ),
               ),
