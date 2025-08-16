@@ -4,8 +4,8 @@
 */
 
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:simple_form_field/errors/app_error.dart';
 
 abstract class BaseBloc<Event, State> extends BlocBase<State> {
