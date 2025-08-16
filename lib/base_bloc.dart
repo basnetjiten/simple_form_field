@@ -1,6 +1,6 @@
 /*
 * @Author:Jiten Basnet on 10/09/2024
-* @Company: EB Pearls
+* @Company: GTEN SOFTWARE PVT. LTD.
 */
 
 import 'package:bloc/bloc.dart';
