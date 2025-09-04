@@ -20,9 +20,9 @@ dependencies:
   equatable: ^2.0.7
 
   #state management
-  bloc: 9.0.0
-  flutter_bloc: 9.1.1
-  bloc_concurrency: 0.3.0
+  bloc: 8.1.4
+  flutter_bloc: ^8.1.6
+  bloc_concurrency: 0.2.5
 
   fpdart: ^1.1.1
 
