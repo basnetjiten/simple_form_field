@@ -2,14 +2,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:simple_form_field/extensions/string_extension.dart';
 
 part 'field.freezed.dart';
-
 part 'field.g.dart';
 
 @Freezed(
   genericArgumentFactories: true,
   toJson: true,
   fromJson: true,
-  copyWith: false
+  copyWith: false,
 )
 class Field<T> with _$Field<T> {
   const Field._();
@@ -29,12 +28,13 @@ class Field<T> with _$Field<T> {
     T? value,
     String? errorMessage,
     bool? obscureText,
+    bool? isValid,
   }) {
-    bool isValid = errorMessage.isNull;
+    bool hasValidFormValue = isValid ?? errorMessage.isNull;
     return Field<T>(
       value: value ?? this.value,
       errorMessage: errorMessage,
-      isValid: isValid,
+      isValid: hasValidFormValue,
       obscureText: obscureText ?? this.obscureText,
     );
   }
@@ -42,6 +42,5 @@ class Field<T> with _$Field<T> {
   factory Field.fromJson(
     Map<String, dynamic> json,
     T Function(Object?) fromJsonT,
-  ) =>
-      _$FieldFromJson(json, fromJsonT);
+  ) => _$FieldFromJson(json, fromJsonT);
 }
