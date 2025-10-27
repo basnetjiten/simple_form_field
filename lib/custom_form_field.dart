@@ -55,6 +55,7 @@ class CustomFormField extends StatelessWidget {
     this.cursorHeight,
     this.borderRadius,
     this.alignVertical,
+    this.prefixIconConstraints,
   });
 
   final Widget? prefixIcon;
@@ -108,74 +109,78 @@ class CustomFormField extends StatelessWidget {
   final Widget? label;
   final String? labelText;
   final TextAlignVertical? alignVertical;
+  final BoxConstraints? prefixIconConstraints;
 
   @override
   Widget build(BuildContext context) => TextFormField(
-        textAlignVertical: alignVertical,
-        textCapitalization: getTextCapitalization(
-          sentenceCapitalization: sentenceCapitalization,
-          wordCapitalization: wordCapitalization,
-          characterCapitalization: characterCapitalization,
+    textAlignVertical: alignVertical,
+    textCapitalization: getTextCapitalization(
+      sentenceCapitalization: sentenceCapitalization,
+      wordCapitalization: wordCapitalization,
+      characterCapitalization: characterCapitalization,
+    ),
+    onTapOutside: (PointerDownEvent data) =>
+        FocusScope.of(context).requestFocus(FocusNode()),
+    cursorColor: cursorColor,
+    enableSuggestions: false,
+    cursorHeight: cursorHeight ?? 16.0,
+    initialValue: initialValue,
+    inputFormatters: inputFormatters,
+    textAlign: textAlign ?? TextAlign.start,
+    autofocus: autoFocus,
+    obscureText: obscureText,
+    controller: controller,
+    focusNode: focusNode,
+    onTap: onTap,
+    readOnly: readonly,
+    style: style,
+    maxLines: maxLines,
+    minLines: minLines,
+    keyboardType: keyboardType,
+    textInputAction: inputAction ?? TextInputAction.next,
+    onChanged: onChanged,
+    validator: validator,
+    autovalidateMode: autoValidateMode,
+    maxLength: maxLength,
+    onEditingComplete:
+        onEditingComplete ??
+        () => FocusScope.of(context).requestFocus(FocusNode()),
+    decoration:
+        inputDecoration ??
+        InputDecoration(
+          floatingLabelBehavior: FloatingLabelBehavior.auto,
+          counterText: showCounterText ? null : '',
+          contentPadding: contentPadding,
+          helperText: '',
+          labelStyle: labelStyle,
+          label: label,
+          labelText: labelText,
+          alignLabelWithHint: false,
+          prefixIcon: prefixIcon,
+          prefixIconConstraints: prefixIconConstraints,
+          border: border,
+          focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
+          enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
+          filled: true,
+          fillColor: fillColor,
+          hintText: hintText,
+          hintStyle: hintStyle,
+          errorMaxLines: errorMaxLines ?? 2,
+          errorText: errorText,
+          suffixIcon: keyboardType == TextInputType.visiblePassword
+              ? IconButton(
+                  onPressed: onSuffixPressed,
+                  icon: !obscureText
+                      ? suffixIcon ?? const Icon(Icons.visibility)
+                      : suffixIcon ?? const Icon(Icons.visibility_off),
+                  color: !obscureText
+                      ? obscureColor ?? Colors.black
+                      : nonObscureColor ?? Colors.black,
+                )
+              : suffixIcon,
+          disabledBorder: disabledBorder,
         ),
-        onTapOutside: (PointerDownEvent data) =>
-            FocusScope.of(context).requestFocus(FocusNode()),
-        cursorColor: cursorColor,
-        enableSuggestions: false,
-        cursorHeight: cursorHeight ?? 16.0,
-        initialValue: initialValue,
-        inputFormatters: inputFormatters,
-        textAlign: textAlign ?? TextAlign.start,
-        autofocus: autoFocus,
-        obscureText: obscureText,
-        controller: controller,
-        focusNode: focusNode,
-        onTap: onTap,
-        readOnly: readonly,
-        style: style,
-        maxLines: maxLines,
-        minLines: minLines,
-        keyboardType: keyboardType,
-        textInputAction: inputAction ?? TextInputAction.next,
-        onChanged: onChanged,
-        validator: validator,
-        autovalidateMode: autoValidateMode,
-        maxLength: maxLength,
-        onEditingComplete: onEditingComplete ??
-            () => FocusScope.of(context).requestFocus(FocusNode()),
-        decoration: inputDecoration ??
-            InputDecoration(
-              floatingLabelBehavior: FloatingLabelBehavior.auto,
-              counterText: showCounterText ? null : '',
-              contentPadding: contentPadding,
-              helperText: '',
-              labelStyle: labelStyle,
-              label: label,
-              labelText: labelText,
-              alignLabelWithHint: false,
-              prefixIcon: prefixIcon,
-              border: border,
-              focusedBorder: disableBorder ? InputBorder.none : focusedBorder,
-              enabledBorder: disableBorder ? InputBorder.none : focusedBorder,
-              filled: true,
-              fillColor: fillColor,
-              hintText: hintText,
-              hintStyle: hintStyle,
-              errorMaxLines: errorMaxLines ?? 2,
-              errorText: errorText,
-              suffixIcon: keyboardType == TextInputType.visiblePassword
-                  ? IconButton(
-                      onPressed: onSuffixPressed,
-                      icon: !obscureText
-                          ? suffixIcon ?? const Icon(Icons.visibility)
-                          : suffixIcon ?? const Icon(Icons.visibility_off),
-                      color: !obscureText
-                          ? obscureColor ?? Colors.black
-                          : nonObscureColor ?? Colors.black,
-                    )
-                  : suffixIcon,
-              disabledBorder: disabledBorder,
-            ),
-      );
+  );
 
   TextCapitalization getTextCapitalization({
     required bool sentenceCapitalization,
