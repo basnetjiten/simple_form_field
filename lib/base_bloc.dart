@@ -30,7 +30,9 @@ abstract class BaseBloc<Event, State> extends BlocBase<State> {
             emitter != null ? emitter(onSuccess(data)) : emit(onSuccess(data)),
       );
     } catch (e) {
-      emit(onFailure("An unexpected error occurred: $e"));
+      if (!isClosed) {
+        emit(onFailure("An unexpected error occurred: $e"));
+      }
     }
   }
 }
