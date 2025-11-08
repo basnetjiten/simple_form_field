@@ -5,7 +5,7 @@ import 'response_data.dart';
 part 'form_status.freezed.dart';
 
 @freezed
-abstract class FormStatus with _$FormStatus {
+class FormStatus with _$FormStatus {
   const factory FormStatus.initial() = _Initial;
 
   const factory FormStatus.invalid({String? message}) = _Invalid;

@@ -30,7 +30,7 @@ abstract class Field<T> with _$Field<T> {
     bool? obscureText,
     bool? isValid,
   }) {
-    bool hasValidFormValue = isValid ?? errorMessage.isNull;
+    bool hasValidFormValue = isValid ?? errorMessage.isNullOrEmpty;
     return Field<T>(
       value: value ?? this.value,
       errorMessage: errorMessage,
