@@ -40,7 +40,7 @@ abstract class SimpleBlocBase<Event, State> extends BlocBase<State> {
       );
     } on AppError catch (error) {
       if (!isClosed && onInvalid != null) {
-        _emitError(emitter, error, onFailure);
+        _emitError(emitter, error, onInvalid);
       }
     } catch (error) {
       log('SimpleBlocBase Error: $error');
@@ -56,9 +56,9 @@ abstract class SimpleBlocBase<Event, State> extends BlocBase<State> {
   void _emitError(
     Emitter<State>? emitter,
     AppError error,
-    State Function(String) onFailure,
+    State Function(String) onInvalidOrFailure,
   ) {
-    final state = error.mapErrorMessage<State>(onFailure);
+    final state = error.mapErrorMessage<State>(onInvalidOrFailure);
     _emitState(emitter, state);
   }
 }
