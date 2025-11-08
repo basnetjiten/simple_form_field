@@ -10,7 +10,7 @@ part 'field.g.dart';
   fromJson: true,
   copyWith: false,
 )
-class Field<T> with _$Field<T> {
+abstract class Field<T> with _$Field<T> {
   const Field._();
 
   const factory Field({
