@@ -41,14 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             children: [
               const Flexible(
-                child: CustomFormField(
+                child: SimpleTextFormField(
                   borderRadius: 20,
                   label: Text('Email'),
                 ),
               ),
-              const Flexible(child: CustomFormField()),
-              CustomFormField(
-
+              const Flexible(child: SimpleTextFormField()),
+              SimpleTextFormField(
                 fillColor: Colors.green,
                 maxLines: 1,
                 labelStyle: const TextStyle(height: 5),
