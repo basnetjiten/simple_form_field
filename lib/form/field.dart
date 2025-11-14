@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:simple_form_field/extensions/string_extension.dart';
+import 'package:simplex/extensions/string_extension.dart';
 
 part 'field.freezed.dart';
 part 'field.g.dart';

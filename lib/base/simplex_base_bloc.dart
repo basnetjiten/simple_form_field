@@ -7,7 +7,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:simple_form_field/errors/app_error.dart';
+import 'package:simplex/errors/app_error.dart';
 
 /// BaseBloc provides a reusable way to handle API calls
 /// and map errors or success results to Bloc states.
