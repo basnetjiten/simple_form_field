@@ -1,5 +1,5 @@
 name: simplex
-description: "Wrapper around TextFormField, Bloc and CachedNetworkImage and SVG images"
+description: "Wrapper for flutter widgets"
 version: 0.0.7
 homepage: https://github.com/basnetjiten/simple_form_field
 
